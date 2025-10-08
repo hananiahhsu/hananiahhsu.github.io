@@ -1,0 +1,12 @@
+<nav class="topnav">
+{% assign L = page.lang | default: 'en' %}
+{% if L == 'en' %}
+  <a href="/en/">Home</a><a href="/en/projects/">Projects</a><a href="/en/blog/">Blog</a><a href="/en/about/">About</a>
+{% elsif L == 'ja' %}
+  <a href="/ja/">ホーム</a><a href="/ja/projects/">プロジェクト</a><a href="/ja/blog/">ブログ</a><a href="/ja/about/">紹介</a>
+{% elsif L == 'fr' %}
+  <a href="/fr/">Accueil</a><a href="/fr/projects/">Projets</a><a href="/fr/blog/">Blog</a><a href="/fr/about/">À propos</a>
+{% else %}
+  <a href="/zh/">首页</a><a href="/zh/projects/">项目</a><a href="/zh/blog/">博客</a><a href="/zh/about/">关于</a>
+{% endif %}
+</nav>

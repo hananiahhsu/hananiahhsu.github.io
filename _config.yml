@@ -1,28 +1,31 @@
-title: 许旭（Xu Hsu）
-description: C++ / CAD / CAE / 图形学工程师 · 自研 CAD/BIM 平台与几何内核探索
+---
+title: "Xu Hsu · Portfolio & Blog"
+description: "C++ / CAD / CAE / Graphics Engineering · SolidDesigner/Alice platform · Geometry kernel exploration"
 theme: minima
-locale: zh-CN
 url: "https://hananiahhsu.github.io"
 
-author:
-  name: Xu Hsu
+# Collections for multilingual blogs (no extra plugins)
+collections:
+  posts_en:
+    output: true
+    permalink: /en/blog/:categories/:year/:month/:day/:title/
+  posts_ja:
+    output: true
+    permalink: /ja/blog/:categories/:year/:month/:day/:title/
+  posts_fr:
+    output: true
+    permalink: /fr/blog/:categories/:year/:month/:day/:title/
+  posts_zh:
+    output: true
+    permalink: /zh/blog/:categories/:year/:month/:day/:title/
 
-github_username: hananiahhsu
-
-minima:
-  skin: auto
-
-# GitHub Pages 白名单插件
+# Only whitelist plugins
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-# 头部导航
-header_pages:
-  - about.md
-  - projects.md
-  - blog/index.md
+# No global header_pages to avoid mixing languages in top bar
+header_pages: []
 
-# 构建设置
 exclude:
   - README.md
