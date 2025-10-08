@@ -1,3 +1,28 @@
-theme: jekyll-theme-architect
-title: 3D Application Development
-description: Space for informations of author, topics of program development, articles upon pioneering advanceent
+title: 许旭（Xu Hsu）
+description: C++ / CAD / CAE / 图形学工程师 · 自研 CAD/BIM 平台与几何内核探索
+theme: minima
+locale: zh-CN
+url: "https://hananiahhsu.github.io"
+
+author:
+  name: Xu Hsu
+
+github_username: hananiahhsu
+
+minima:
+  skin: auto
+
+# GitHub Pages 白名单插件
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# 头部导航
+header_pages:
+  - about.md
+  - projects.md
+  - blog/index.md
+
+# 构建设置
+exclude:
+  - README.md

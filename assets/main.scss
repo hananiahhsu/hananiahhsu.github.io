@@ -1,0 +1,11 @@
+---
+---
+
+@import "minima";
+
+/* Simple cards & grids for projects */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.card { border: 1px solid #eaecef; border-radius: 12px; padding: 16px; }
+.card h3 { margin-top: 0.2rem; margin-bottom: 0.3rem; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: .85rem; background: #f6f8fa; border: 1px solid #eaecef; margin-right: 6px; }
+.muted { color: #6a737d; }
