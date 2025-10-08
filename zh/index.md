@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 你好，我是许旭（Xu Hsu）
+title: 你好，我是（Hananiah.x.Hsu）
 permalink: /zh/
 lang: zh
 ---
@@ -9,7 +9,7 @@ lang: zh
 {% include topnav.html %}
 
 <div class="card">
-  <h1 style="margin:.2rem 0;">你好，我是许旭（Xu Hsu）</h1>
+  <h1 style="margin:.2rem 0;">你好，我是（Hananiah.x.Hsu）</h1>
   <p class="muted">C++ · CAD/CAE · 图形学 · 平台架构</p>
   <p>专注 C++ / CAD-CAE / 图形学 与大型工程平台架构。自研 CAD/BIM 平台 SolidDesigner（Alice），探索几何内核与可靠工具链。</p>
   <p>
@@ -19,6 +19,7 @@ lang: zh
     <a href="/zh/about/">About</a>
   </p>
 </div>
+
 
 <h2>Featured Projects</h2>
 <div class="grid">
