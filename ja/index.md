@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Xu Hsu です
+title: Hananiah です
 permalink: /ja/
 lang: ja
 ---
@@ -9,7 +9,7 @@ lang: ja
 {% include topnav.html %}
 
 <div class="card">
-  <h1 style="margin:.2rem 0;">Xu Hsu です</h1>
+  <h1 style="margin:.2rem 0;">Hananiah です</h1>
   <p class="muted">C++ · CAD/CAE · グラフィックス · プラットフォーム設計</p>
   <p>C++／CAD・CAE／グラフィックスおよび大規模プラットフォームアーキテクチャに注力。自作 CAD/BIM プラットフォーム SolidDesigner（Alice）を開発し、ジオメトリカーネルと堅牢なツールチェーンを探求しています。</p>
   <p>

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Bonjour, je suis Xu Hsu
+title: Bonjour, je suis Hananiah Hsu
 permalink: /fr/
 lang: fr
 ---
@@ -9,7 +9,7 @@ lang: fr
 {% include topnav.html %}
 
 <div class="card">
-  <h1 style="margin:.2rem 0;">Bonjour, je suis Xu Hsu</h1>
+  <h1 style="margin:.2rem 0;">Bonjour, je suis Hananiah Hsu</h1>
   <p class="muted">C++ · CAO/IAO · Graphisme · Architecture de plateforme</p>
   <p>Ingénieur focalisé sur le C++ / CAD‑CAE / graphisme et l’architecture de plateformes. Développement de la plateforme SolidDesigner (Alice), exploration des noyaux géométriques et d’une chaîne d’outils robuste.</p>
   <p>
@@ -19,6 +19,7 @@ lang: fr
     <a href="/fr/about/">About</a>
   </p>
 </div>
+
 
 <h2>Featured Projects</h2>
 <div class="grid">
