@@ -8,7 +8,7 @@ lang: zh
 {% include lang-switch.html %}
 {% include topnav.html %}
 
-# 侧重点
+### 侧重点
 
 1. 计算机图形与桌面工程应用（渲染与交互工具）
 2.  建筑设计软件（建筑/室内）与 BIM/IFC 互操作
@@ -19,3 +19,6 @@ lang: zh
 ### 教育
 **南京林业大学** · 本科 · 过程装备与控制工程 · *2005 — 2009*  
 方向：压力容器设计。
+
+### 联系方式
+- 邮箱：<a href="mailto:{{ site.email }}">{{ site.email }}</a>

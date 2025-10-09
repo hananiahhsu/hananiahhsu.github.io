@@ -25,3 +25,6 @@ Développement du logiciel **SolarThermal** (conception, simulation, calcul).
 ### Formation
 **Université forestière de Nankin** · Licence · Génie des équipements de procédé et contrôle · *2005 — 2009*  
 Focus : conception de récipients sous pression.
+
+### Contact
+- Courriel : <a href="mailto:{{ site.email }}">{{ site.email }}</a>

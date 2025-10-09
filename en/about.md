@@ -23,3 +23,6 @@ lang: en
 ### Education
 **Nanjing Forestry University** · B.Eng., Process Equipment and Control Engineering · *2005 — 2009*  
 Focus: pressurized vessel design.
+
+### Contact
+- Email: <a href="mailto:{{ site.email }}">{{ site.email }}</a>
