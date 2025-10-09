@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Hi, I'm Xu Hsu
+title: Hi, I'm Hananiah Hsu
 permalink: /en/
 lang: en
 ---
@@ -9,7 +9,7 @@ lang: en
 {% include topnav.html %}
 
 <div class="card">
-  <h1 style="margin:.2rem 0;">Hi, I'm Xu Hsu</h1>
+  <h1 style="margin:.2rem 0;">Hi, I'm Hananiah Hsu</h1>
   <p class="muted">C++ · CAD/CAE · Graphics · Platform Architecture</p>
   <p>Engineer focused on C++ / CAD-CAE / graphics and large-scale platform architecture. Building the SolidDesigner (Alice) platform, exploring geometry kernels and robust tooling.</p>
   <p>
@@ -19,6 +19,7 @@ lang: en
     <a href="/en/about/">About</a>
   </p>
 </div>
+
 
 <h2>Featured Projects</h2>
 <div class="grid">

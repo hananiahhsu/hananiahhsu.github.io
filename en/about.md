@@ -8,19 +8,17 @@ lang: en
 {% include lang-switch.html %}
 {% include topnav.html %}
 
-**Self-study / Self-employed** · *Feb 2025 — Sep 2025 (8 months)*
+### About
 
-**Glodon Company Limited** · *Permanent*  
-- Staff Software Engineer · *Jun 2023 — Feb 2025 (1 yr 9 mos)*  
-- Advanced Software Engineer · *Jan 2020 — Jun 2023 (3 yrs 6 mos)* · *Haidian, Beijing, China*
+  I bridge mechanical engineering and software development to build production-grade tools for design, simulation, and visualization. With a background in mechanical system design and optimization, I translate real-world engineering constraints into robust, high-performance code—streamlining workflows and improving accuracy. My work spans desktop engineering applications, computer graphics/rendering, CAD/BIM platforms (including IFC interoperability), parametric/“intelligent” 3D design, and simulation tooling for solar thermal and pressure-vessel scenarios. In C++ and Python, I deliver clean architectures, reliable algorithms, and practical automation that reduce cycle time and raise product quality. I thrive in dynamic teams where deep engineering meets modern software craft. 
 
-**WitSoft** · Software Engineer · *Permanent* · *Sep 2015 — Nov 2019 (4 yrs 3 mos)* · *Nanjing, Jiangsu, China*  
-C++ development for OpenGL-related and Creo Parametric applications.
+### Focus areas 
 
-**de-moivre** · Software Engineer · *Self-employed* · *Oct 2014 — Nov 2019 (5 yrs 2 mos)* · *Shenzhen, Guangdong, China*  
-Developed solar-thermal software **SolarThermal** for design, simulation and calculation.
-
-**MICOE** · Mechanical Engineer · *Apr 2011 — Apr 2015 (4 yrs 1 mo)* · *Lianyungang, Jiangsu, China*
+1. Computer Graphics & Desktop Engineering Apps (rendering pipelines, interactive 3D tooling) 
+2. Building-Design Software (architecture/interior), BIM/IFC interoperability
+3. 3D Intelligent/Parametric Design and optimization 
+4. Solar-Water-Heating system modeling, simulation, and performance analysis 
+5. Pressure-Vessel design and verification
 
 ### Education
 **Nanjing Forestry University** · B.Eng., Process Equipment and Control Engineering · *2005 — 2009*  
