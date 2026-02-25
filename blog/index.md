@@ -1,8 +1,23 @@
 ---
-layout: home
-title: 博客
+layout: page
+title: "Blog"
 permalink: /blog/
-list_title: 全部文章
 ---
 
-记录工程实践、几何算法、平台架构与工具链的笔记。
+<ul class="post-list">
+  {% for post in site.posts %}
+    <li class="post-list-item">
+      <a class="post-list-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <div class="post-list-meta">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+        {% if post.categories %}
+          <span class="dot">·</span>
+          <span class="cats">{{ post.categories | join: ", " }}</span>
+        {% endif %}
+      </div>
+      {% if post.excerpt %}
+        <div class="post-list-excerpt">{{ post.excerpt | strip_html | truncate: 220 }}</div>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

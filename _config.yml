@@ -1,32 +1,27 @@
 ---
-title: "Xu Hsu · Portfolio & Blog"
-description: "C++ / CAD / CAE / Graphics Engineering · SolidDesigner/Alice platform · Geometry kernel exploration"
+# Single-language site
+
+title: "Hananiah · Engineering Notes"
+description: "C++ / CAD / CAE / Graphics Engineering · SolidDesigner/Alice platform · Geometry kernel & math notes"
 theme: minima
 url: "https://hananiahhsu.github.io"
 email: "hananiahhsu@live.cn"
 
-# Collections for multilingual blogs (no extra plugins)
-collections:
-  posts_en:
-    output: true
-    permalink: /en/blog/:categories/:year/:month/:day/:title/
-  posts_ja:
-    output: true
-    permalink: /ja/blog/:categories/:year/:month/:day/:title/
-  posts_fr:
-    output: true
-    permalink: /fr/blog/:categories/:year/:month/:day/:title/
-  posts_zh:
-    output: true
-    permalink: /zh/blog/:categories/:year/:month/:day/:title/
-
-# Only whitelist plugins
+# Only whitelist plugins supported by GitHub Pages
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-# No global header_pages to avoid mixing languages in top bar
-header_pages: []
+# Site-wide defaults
+permalink: /blog/:categories/:year/:month/:day/:title/
+
+# Top navigation pages (rendered in our custom header)
+header_pages:
+  - projects.md
+  - math.md
+  - about.md
 
 exclude:
   - README.md
+  - blog_src
+  - .git

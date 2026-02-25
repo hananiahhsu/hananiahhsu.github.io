@@ -1,0 +1,79 @@
+---
+layout: default
+---
+
+{% assign words = content | strip_html | replace: '\n', ' ' | split: ' ' | size %}
+{% assign reading_time = words | divided_by: 200 | plus: 1 %}
+
+<article class="post" role="article">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
+      <span class="dot">·</span>
+      <span>{{ reading_time }} min read</span>
+      {% if page.categories and page.categories.size > 0 %}
+        <span class="dot">·</span>
+        <span class="cats">{{ page.categories | join: ", " }}</span>
+      {% endif %}
+    </p>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  {% if page.series %}
+    {% assign series_posts = site.posts | where: "series", page.series | sort: "chapter" %}
+
+    {% assign prev_url = nil %}
+    {% assign next_url = nil %}
+    {% assign prev_title = nil %}
+    {% assign next_title = nil %}
+
+    {% assign found = false %}
+    {% for p in series_posts %}
+      {% if found == true %}
+        {% assign next_url = p.url %}
+        {% assign next_title = p.title %}
+        {% break %}
+      {% endif %}
+      {% if p.url == page.url %}
+        {% assign found = true %}
+      {% else %}
+        {% assign prev_url = p.url %}
+        {% assign prev_title = p.title %}
+      {% endif %}
+    {% endfor %}
+
+    <hr />
+
+    <section class="series-nav">
+      <h2>In this series</h2>
+      <ol class="series-list">
+        {% for p in series_posts %}
+          <li>
+            {% if p.url == page.url %}
+              <strong>{{ p.title }}</strong>
+            {% else %}
+              <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ol>
+
+      <div class="series-prevnext">
+        {% if prev_url %}
+          <a class="btn btn-ghost" href="{{ prev_url | relative_url }}">← {{ prev_title }}</a>
+        {% endif %}
+        {% if next_url %}
+          <a class="btn" href="{{ next_url | relative_url }}">{{ next_title }} →</a>
+        {% endif %}
+      </div>
+    </section>
+  {% endif %}
+
+  <div class="section-links">
+    <a href="{{ '/blog/' | relative_url }}">Back to Blog →</a>
+  </div>
+</article>

@@ -1,10 +1,16 @@
 ---
 layout: post
-title: "Hello, GitHub Pages!"
-date: 2025-10-08
-categories: [meta]
-tags: [jekyll, github-pages]
+title:  "Hello, GitHub Pages"
+date:   2025-10-08 19:00:00 +0800
+categories: meta
 ---
 
-这是我的新主页与博客。仓库：`hananiahhsu/hananiahhsu.github.io`。  
-我会在这里记录 CAD/CAE 平台架构、几何算法与工程实践的笔记。
+This site is built with **GitHub Pages + Jekyll**.
+
+I’m keeping the setup intentionally lightweight:
+
+- Markdown-first content
+- No multi-language variants (English only)
+- A clean permalink structure under `/blog/`
+
+Next up: shipping a proper **math column** and more detailed engineering write-ups.

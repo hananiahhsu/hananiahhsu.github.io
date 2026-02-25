@@ -2,11 +2,360 @@
 ---
 @import "minima";
 
-.lang, .topnav { margin: 0.6rem 0 1rem; font-size: .95rem; }
-.lang a, .topnav a { margin-right: .8rem; }
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
-.card { border: 1px solid #eaecef; border-radius: 12px; padding: 16px; }
-.card h3 { margin-top: .2rem; margin-bottom: .3rem; }
-.badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: .85rem; background: #f6f8fa; border: 1px solid #eaecef; margin-right: 6px; }
-.muted { color: #6a737d; }
-.site-nav { display: none; }
+/*
+  A clean, typography-first theme on top of Minima.
+  - English-only site
+  - Responsive, readable, modern
+*/
+
+:root {
+  --bg: #ffffff;
+  --fg: #0b1220;
+  --muted: #5b6472;
+  --card: #ffffff;
+  --border: rgba(15, 23, 42, 0.12);
+  --link: #155eef;
+  --link-hover: #0b4dd8;
+  --accent: #111827;
+  --code-bg: #0b1220;
+  --code-fg: #e6edf3;
+  --shadow: 0 10px 30px rgba(2, 6, 23, 0.10);
+  --radius: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #070a10;
+    --fg: #e6edf3;
+    --muted: #9aa4b2;
+    --card: rgba(255, 255, 255, 0.04);
+    --border: rgba(255, 255, 255, 0.10);
+    --link: #76a7ff;
+    --link-hover: #a5c4ff;
+    --accent: #ffffff;
+    --code-bg: #0b1220;
+    --code-fg: #e6edf3;
+    --shadow: 0 12px 34px rgba(0, 0, 0, 0.45);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.7;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+.wrapper {
+  max-width: 960px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Header */
+.site-header {
+  border-top: none;
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.site-title {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+}
+
+.site-title:hover {
+  color: var(--accent);
+  opacity: 0.9;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+}
+
+.site-nav a {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.site-nav a:hover {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--card) 70%, transparent);
+}
+
+.site-nav .nav-ext {
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 760px) {
+  .header-inner { flex-wrap: wrap; }
+  .site-nav { flex-wrap: wrap; justify-content: flex-start; }
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--border);
+}
+
+.footer-col-wrapper,
+.footer-col {
+  color: var(--muted);
+}
+
+/* Home hero */
+.hero {
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--card) 92%, transparent),
+    color-mix(in srgb, var(--card) 80%, transparent)
+  );
+  border-radius: var(--radius);
+  padding: 28px;
+  margin: 12px 0 28px;
+  box-shadow: var(--shadow);
+}
+
+.hero-title {
+  margin: 0 0 10px;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.hero-subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.hero-cta {
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 700;
+}
+
+.btn:hover {
+  opacity: 0.95;
+  color: var(--bg);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--accent);
+}
+
+.btn-ghost:hover {
+  background: color-mix(in srgb, var(--card) 70%, transparent);
+  color: var(--accent);
+}
+
+/* Cards & lists */
+.post-grid {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.post-card {
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: 0 1px 0 rgba(2, 6, 23, 0.06);
+}
+
+.post-card:hover {
+  transform: translateY(-1px);
+  transition: transform 120ms ease;
+}
+
+.post-card-title {
+  font-weight: 800;
+  color: var(--accent);
+  display: inline-block;
+  margin-bottom: 6px;
+  line-height: 1.25;
+}
+
+.post-card-meta,
+.post-list-meta {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.post-card-excerpt,
+.post-list-excerpt {
+  margin-top: 10px;
+  color: var(--muted);
+}
+
+.section-links {
+  margin-top: 16px;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+.post-list-item {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-list-title {
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.dot {
+  margin: 0 6px;
+}
+
+.series-list {
+  padding-left: 1.3rem;
+}
+
+.series-meta {
+  margin-left: 10px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Post typography */
+.post-title,
+.page-heading {
+  letter-spacing: -0.02em;
+}
+
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+  letter-spacing: -0.015em;
+}
+
+.post-content {
+  font-size: 1.05rem;
+}
+
+.post-content p {
+  margin: 0.8rem 0;
+}
+
+.post-content blockquote {
+  border-left: 4px solid var(--border);
+  padding-left: 14px;
+  color: var(--muted);
+}
+
+/* Code */
+pre, code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+pre {
+  background: var(--code-bg);
+  color: var(--code-fg);
+  border-radius: 14px;
+  padding: 14px 16px;
+  overflow: auto;
+  border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+}
+
+code {
+  background: color-mix(in srgb, var(--card) 70%, transparent);
+  padding: 0.15em 0.35em;
+  border-radius: 8px;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+}
+
+/* Tables */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th, table td {
+  border: 1px solid var(--border);
+  padding: 10px;
+}
+
+table th {
+  text-align: left;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 24px 0;
+}
+
+.series-nav h2 {
+  margin-top: 0;
+}
+
+.series-prevnext {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}

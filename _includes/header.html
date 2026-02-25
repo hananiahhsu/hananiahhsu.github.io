@@ -1,7 +1,14 @@
-<header class="site-header">
-  <div class="wrapper">
-    <a class="site-title" rel="author" href="{{ '/' | relative_url }}">
-      {{ site.title | escape }}
-    </a>
+<header class="site-header" role="banner">
+  <div class="wrapper header-inner">
+    <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+
+    <nav class="site-nav" aria-label="Primary">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
+      <a href="{{ '/math/' | relative_url }}">Math</a>
+      <a href="{{ '/projects/' | relative_url }}">Projects</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+      <a class="nav-ext" href="https://github.com/hananiahhsu" target="_blank" rel="noopener">GitHub ¨J</a>
+    </nav>
   </div>
 </header>
