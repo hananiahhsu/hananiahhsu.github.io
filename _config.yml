@@ -3,6 +3,9 @@
 
 title: "Hananiah · Engineering Notes"
 description: "C++ / CAD / CAE / Graphics Engineering · SolidDesigner/Alice platform · Geometry kernel & math notes"
+lang: "en"
+timezone: "UTC"
+future: true
 theme: minima
 url: "https://hananiahhsu.github.io"
 email: "hananiahhsu@live.cn"
