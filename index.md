@@ -11,6 +11,7 @@ permalink: /
   <div class="hero-cta">
     <a class="btn" href="/blog/">Read the blog</a>
     <a class="btn btn-ghost" href="/math/">Math column</a>
+    <a class="btn btn-ghost" href="/graphics/">Graphics column</a>
   </div>
 </div>
 
