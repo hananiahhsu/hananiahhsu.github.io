@@ -11,6 +11,21 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="{{ '/assets/og-cover.png' | absolute_url }}">
     <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+    {% if page.categories contains "math" or page.url == "/math/" %}
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["$", "$"], ["\\(", "\\)"]],
+          displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+          processEscapes: true
+        },
+        options: {
+          skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+        }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    {% endif %}
     {%- feed_meta -%}
     <script type="application/ld+json">
       {

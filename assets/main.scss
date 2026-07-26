@@ -1504,6 +1504,17 @@ img {
   margin: 0;
 }
 
+.post-content mjx-container[jax="CHTML"][display="true"] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.45rem 0;
+  color: var(--paper);
+}
+
+.post-content mjx-container[jax="CHTML"]:not([display="true"]) {
+  color: var(--paper);
+}
+
 pre,
 code {
   font-family: var(--mono);

@@ -8,65 +8,109 @@ chapter: 1
 permalink: /math/lebesgue-stieltjes-integral/ch01-real-numbers/
 ---
 
-This book starts *before* integration, because Lebesgue-style arguments lean heavily on the structure of the real line and on limiting processes.
+Integration theory rests on order, completeness, and limits. This chapter isolates those foundations because every later construction—from outer measure to $L^p$ convergence—uses them explicitly.
 
-## 1) Dense sets: rationals and irrationals
+## Scope and notation
 
-Two facts that keep resurfacing:
+Throughout the series, $\mathbb N=\{1,2,\ldots\}$, $\mathbb Q$ denotes the rational numbers, and
 
-- Between any two real numbers **a < b**, there exist **both** a rational and an irrational number.
-- In fact, there are **infinitely many** of each between *any* two reals.
+$$
+\infty,\,-\infty\in\overline{\mathbb R}
+  :=\mathbb R\cup\{-\infty,+\infty\}.
+$$
 
-Why this matters: density is what makes “arbitrarily fine approximation” possible. Later, step functions approximate measurable functions by carving the domain into small intervals; density ensures those partitions behave as expected.
+An interval written $(a,b]$ is open at $a$ and closed at $b$. This convention will later align with a right-continuous integrator $\alpha$ through
+$\mu_\alpha((a,b])=\alpha(b)-\alpha(a)$.
 
-## 2) Countable vs. uncountable
+## Completeness is the decisive property
 
-The chapter reminds you of a hierarchy:
+The real numbers form a complete ordered field. The operative statement is the **least-upper-bound axiom**:
 
-- **ℕ**, **ℤ**, **ℚ** are *countable* (their elements can be listed as a sequence).
-- Any nontrivial real interval, e.g. **(0, 1)**, is *uncountable*.
+> Every nonempty set $E\subset\mathbb R$ that is bounded above has a unique supremum $\sup E\in\mathbb R$.
 
-A practical takeaway you’ll use later: **countable sets are “small”** in measure theory. In Lebesgue integration, countable sets typically become *null sets* under reasonable measures, so changing a function on such a set doesn’t affect integrals.
+The infimum follows by $\inf E=-\sup(-E)$. Completeness is stronger than the algebraic field laws; it is precisely what $\mathbb Q$ lacks. For example,
 
-## 3) The extended real line
+$$
+E=\{q\in\mathbb Q:q^2<2\}
+$$
 
-It’s convenient to work with
+is nonempty and bounded above in $\mathbb Q$, but has no rational supremum. In $\mathbb R$, its supremum is $\sqrt2$.
 
-- **ℝₑ = ℝ ∪ {+∞, −∞}**
+This axiom drives the monotone convergence principle. If $x_1\le x_2\le\cdots$ and $(x_n)$ is bounded above, set $x=\sup_n x_n$. For every $\varepsilon>0$, $x-\varepsilon$ cannot be an upper bound, so some $x_N>x-\varepsilon$; monotonicity then gives
 
-and allow intervals like **(−∞, b]** or **(a, +∞)**.
+$$
+x-\varepsilon<x_n\le x,\qquad n\ge N.
+$$
 
-This is not just notation. It keeps statements uniform when you later define measures and integrals on *arbitrary* intervals, not only closed bounded ones.
+Hence $x_n\to x$. Measure theory repeatedly lifts this order argument from numbers to sets and functions.
 
-## 4) Supremum and infimum
+## Density and countability
 
-A key completeness property is packaged as:
+The Archimedean property implies that for $a<b$ one can choose $n\in\mathbb N$ with $n(b-a)>1$, then an integer $m$ satisfying
 
-- Every nonempty subset of **ℝₑ** has a **least upper bound** (supremum) and a **greatest lower bound** (infimum).
+$$
+na<m<nb.
+$$
 
-Two patterns to internalize:
+Thus $a<m/n<b$, proving that $\mathbb Q$ is dense in $\mathbb R$. Because $\sqrt2\,\mathbb Q$ is also dense and contains irrationals away from zero, the irrationals are dense as well.
 
-- **sup S** may or may not belong to **S**.
-- When **sup S** is finite, it can be characterized by the “ε-approximation” condition: for every **ε > 0**, there exists **x ∈ S** with **sup S − ε < x ≤ sup S**.
+Density and cardinality must not be confused:
 
-This “for every ε, exists x” template is the same logical shape you’ll see later in:
+- $\mathbb Q$ is countable and dense.
+- $\mathbb R\setminus\mathbb Q$ is uncountable and dense.
+- A set can therefore be topologically pervasive while remaining small for a particular measure.
 
-- definitions of limits,
-- definitions of integrals via approximation,
-- convergence theorems.
+The last qualification matters. Every countable set has Lebesgue measure zero, but a countable set need not have zero Lebesgue–Stieltjes measure. If
 
-## Mental model for later chapters
+$$
+\alpha(x)=\sum_{k=1}^{\infty}2^{-k}\mathbf 1_{[k,\infty)}(x),
+$$
 
-If you want a one-line bridge to integration:
+then $\mu_\alpha(\{k\})=2^{-k}$ and
+$\mu_\alpha(\mathbb N)=1$. “Countable implies null” is valid for nonatomic measures such as Lebesgue measure, not for arbitrary Stieltjes measures.
 
-> **Integration is controlled approximation, and controlled approximation is powered by completeness + limits.**
+## Extended real values
 
-Lebesgue–Stieltjes theory will generalize “length” to a *measure* defined via a monotone function α. This only works smoothly when the underlying number system supports sup/inf, one-sided limits, and carefully defined intervals.
+The extended real line makes monotone limits and integrals of nonnegative functions total: they always exist in $[0,+\infty]$. Its order is natural,
 
-### Practice checklist
+$$
+-\infty < x < +\infty \quad (x\in\mathbb R),
+$$
 
-Before moving on, make sure you can do these quickly:
+but its arithmetic is deliberately partial. Expressions such as $+\infty-\infty$ and $0\cdot\infty$ are undefined. This is not a technical nuisance. It explains why the integral of a signed function is defined only when at least one of
+$\int f^+\,d\mu$ and $\int f^-\,d\mu$ is finite, and why finite integrability requires both to be finite.
 
-- Use density to find rationals/irrationals inside arbitrary intervals.
-- Prove basic countability facts (unions, images under simple maps).
-- Compute **sup/inf** for simple sets and verify the ε-characterization.
+For a sequence $(x_n)\subset\overline{\mathbb R}$,
+
+$$
+\limsup_{n\to\infty}x_n
+=\inf_{N\ge1}\sup_{n\ge N}x_n,\qquad
+\liminf_{n\to\infty}x_n
+=\sup_{N\ge1}\inf_{n\ge N}x_n.
+$$
+
+These values always exist in $\overline{\mathbb R}$, and $x_n$ converges exactly when the two agree.
+
+## Worked example: an infimum not attained
+
+Consider $E=(0,1)$. Then $\inf E=0$ and $\sup E=1$, although neither endpoint belongs to $E$. An extremum is a member of the set; a supremum or infimum need only be the sharp order bound. The distinction is essential in optimization:
+
+$$
+\inf_{x\in E}F(x)
+$$
+
+can exist without a minimizer. Existence of a minimizing design therefore needs additional structure, commonly compactness of the admissible set and lower semicontinuity of $F$.
+
+## Computational interpretation
+
+Exact completeness is a property of $\mathbb R$, not of floating-point numbers. A floating-point type is finite and discrete; rounding can destroy associativity and order comparisons near a tolerance. Reliable geometric computation therefore separates:
+
+- the mathematical existence statement, established in $\mathbb R$;
+- the approximation algorithm, which produces a finite representation;
+- the error contract, which states the metric, scale, and tolerance under which the result is accepted.
+
+This separation becomes particularly important in CAD algorithms. Intersection points, closest-point parameters, and extremal curvature values may be defined through a supremum or infimum even when the numerical routine can only approximate them. The theorem establishes what the target is; numerical analysis establishes whether the implementation reaches it with a controlled error.
+
+## What this chapter establishes
+
+The reusable foundation is now precise: completeness turns bounded monotone processes into limits; density supports approximation; countability does not by itself determine measure; and extended real values allow convergence theorems to be stated without artificial finite bounds. The next chapter transfers these ideas from numbers to functions.

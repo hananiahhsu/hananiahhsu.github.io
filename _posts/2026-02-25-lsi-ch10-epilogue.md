@@ -1,53 +1,149 @@
 ---
 layout: post
-title: "Lebesgue–Stieltjes Integral: Chapter 10 — Epilogue"
-date: 2026-02-25 13:10:00 +0800
+title: "Lebesgue–Stieltjes Integral: Chapter 10 — Beyond Lebesgue Integration"
+date: 2026-02-25 18:00:00 +0800
 categories: [math, analysis]
 series: lebesgue-stieltjes-integral
 chapter: 10
 permalink: /math/lebesgue-stieltjes-integral/ch10-epilogue/
 ---
 
-The epilogue steps back and answers a natural question:
+Lebesgue integration provides a powerful synthesis of measure, convergence, $L^p$ spaces, probability, and functional analysis. It does not, however, integrate every derivative. The final chapter clarifies what later integration theories extend and what they give up.
 
-> If Lebesgue (and Lebesgue–Stieltjes) integration is so powerful, why do people still invent new integrals?
+## The derivative problem
 
-## 10.1 The Lebesgue integral and its successors
+If $F$ is absolutely continuous on $[a,b]$, then
 
-Lebesgue integration is a foundation, but it is not the end of the story.
+$$
+F(b)-F(a)=\int_a^bF'(x)\,dx
+$$
 
-Some later integrals were designed to capture functions that are not Lebesgue integrable while preserving certain calculus identities.
+with $F'\in L^1$. For a merely differentiable $F$, the derivative need not be Lebesgue integrable. Derivatives satisfy the Darboux property, but they can oscillate too strongly to be absolutely integrable.
 
-A recurring tension:
+This reveals a mismatch:
 
-- **Generality**: integrate more functions.
-- **Structure**: keep familiar theorems (FTC, substitution, etc.).
+- differentiation is local and sensitive to cancellation;
+- finite Lebesgue integrability requires
+  $\int|f|<\infty$, an absolute global condition.
 
-Pushing one often compromises the other.
+The Newton integral asks for an antiderivative first. Measure-theoretic integration asks for a measurable function with controlled positive and negative parts. Gauge integration supplies another route.
 
-## 10.2 “Riemann strikes back”
+## Henstock–Kurzweil construction
 
-The chapter discusses integrals that look more “Riemann-like” (partition-based) but are powerful enough to integrate broader classes than the classical Riemann integral.
+Let $f:[a,b]\to\mathbb R$. A **gauge** is a positive function
 
-The general pattern is:
+$$
+\delta:[a,b]\to(0,\infty).
+$$
 
-- allow partitions that adapt to the function (gauge-like refinement rules),
-- regain strong versions of the Fundamental Theorem of Calculus,
-- integrate some derivatives that are not Lebesgue integrable.
+A tagged partition
 
-These integrals are relevant when your goal is not measure theory but rather **calculus restoration**.
+$$
+\mathcal P=\{([x_{i-1},x_i],t_i)\}_{i=1}^{n}
+$$
 
-## How to place Lebesgue–Stieltjes in the bigger map
+is $\delta$-fine when
 
-My takeaway from the book’s arc:
+$$
+[x_{i-1},x_i]
+\subset
+(t_i-\delta(t_i),t_i+\delta(t_i))
+$$
 
-- Use **Lebesgue–Stieltjes** when you care about convergence, probability, and functional-analytic structure.
-- Look at “successor integrals” when you specifically need stronger calculus identities for pathological objects.
+for every $i$. The Henstock–Kurzweil integral of $f$ is $I$ if for every $\varepsilon>0$ there exists a gauge $\delta$ such that every $\delta$-fine tagged partition satisfies
 
-For engineering and applied work, Lebesgue–Stieltjes is often the sweet spot: powerful enough for real analysis and probability, yet concrete enough to compute with (especially when α has a probabilistic interpretation).
+$$
+\left|
+\sum_{i=1}^{n}f(t_i)(x_i-x_{i-1})-I
+\right|<\varepsilon.
+$$
 
-### Practice checklist
+The crucial difference from the Riemann definition is that interval size is controlled locally by the tag. Near a singular or rapidly oscillating point, the gauge can demand a much finer interval.
 
-- Be able to explain *why* Lebesgue beats Riemann (convergence + null sets).
-- Be able to explain *why* some gauge integrals beat Lebesgue for derivatives.
-- Keep a mental separation between: “integration as area/measure” vs “integration as inverse differentiation.”
+The Henstock–Kurzweil integral contains the Riemann and Lebesgue integrals on compact intervals and integrates every finite derivative, restoring a broad form of the Fundamental Theorem of Calculus.
+
+## A canonical example
+
+Define
+
+$$
+F(x)=
+\begin{cases}
+x^2\sin(x^{-4}),&x\ne0,\\
+0,&x=0.
+\end{cases}
+$$
+
+Then $F$ is differentiable at $0$, with $F'(0)=0$, and for $x\ne0$,
+
+$$
+F'(x)
+=2x\sin(x^{-4})
+-4x^{-3}\cos(x^{-4}).
+$$
+
+The derivative is not absolutely integrable near $0$. Indeed, the magnitude of the second term behaves like $x^{-3}|\cos(x^{-4})|$, whose integral diverges. Nevertheless, $F'$ is Henstock–Kurzweil integrable and
+
+$$
+\operatorname{HK}\!\int_{-1}^{1}F'(x)\,dx
+=F(1)-F(-1)=0.
+$$
+
+The value depends on cancellation encoded by the derivative structure, not on finite total variation.
+
+## What the extension does not replace
+
+Broader integrability is not automatically a better foundation for every problem. Lebesgue integration remains the standard framework when the task needs:
+
+- countably additive measures;
+- $L^p$ and Hilbert-space completeness;
+- product measures and probability;
+- Radon–Nikodym derivatives;
+- robust monotone and dominated convergence theorems;
+- weak convergence and functional analysis.
+
+Gauge integration is particularly natural for recovering antiderivatives and handling conditionally integrable oscillations. Its convergence and product theories require their own hypotheses; one must not import every Lebesgue theorem unchanged.
+
+## Comparison by mathematical requirement
+
+| Requirement | Natural framework |
+|---|---|
+| continuous function on a compact interval | Riemann |
+| measurable accumulation, probability, $L^p$ | Lebesgue |
+| density plus atoms or a cumulative integrator | Lebesgue–Stieltjes |
+| recovery of highly irregular derivatives | Henstock–Kurzweil |
+| operator and projection geometry | Hilbert-space integration |
+
+The frameworks form an expanding toolkit, not a ranking. The appropriate integral is the one whose convergence rules and structural objects match the problem.
+
+## Implications for numerical computation
+
+A gauge resembles an adaptive local resolution rule, but a numerical adaptive quadrature routine is not automatically a Henstock–Kurzweil implementation. A finite computation must still provide:
+
+- a representation of singular points or oscillatory regions;
+- an error estimator tied to a stated function class;
+- a stopping criterion;
+- a finite-precision analysis;
+- reproducible behavior under interval subdivision.
+
+For CAD and simulation, Lebesgue–Stieltjes integration remains especially valuable because it combines distributed fields and concentrated feature contributions in a measure compatible with product spaces and $L^p$ analysis. Gauge integration becomes relevant when parameter sensitivities or analytic derivatives exhibit cancellation beyond absolute integrability.
+
+## Closing synthesis
+
+The series begins with completeness of $\mathbb R$ and ends with complete function spaces. Between them lies one continuous line of ideas:
+
+$$
+\text{order}
+\longrightarrow
+\text{measure}
+\longrightarrow
+\text{integral}
+\longrightarrow
+\text{convergence}
+\longrightarrow
+L^p
+\longrightarrow
+\text{Hilbert geometry}.
+$$
+
+The professional value of the theory is not notation. It is the ability to state exactly what is being accumulated, which exceptional sets matter, how approximation converges, and which transformations preserve the result.

@@ -27,4 +27,9 @@ header_pages:
 exclude:
   - README.md
   - blog_src
+  - dist
+  - .sites-package
+  - .openai
+  - .jekyll-validation
+  - .sass-cache
   - .git
