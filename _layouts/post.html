@@ -3,23 +3,29 @@ layout: null
 ---
 {% include head_open.html %}
 {% include header.html %}
-<main class="page-content" aria-label="Content">
-  <div class="wrapper">
+<main class="page-content" id="main-content" aria-label="Content">
+  <div class="wrapper reading-wrapper">
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
       <header class="post-header">
+        <a class="post-back" href="{{ '/blog/' | relative_url }}">Journal /</a>
         <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-        <p class="post-meta">
+        <div class="post-meta">
           <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-            {{ page.date | date: "%b %-d, %Y" }}
+            {{ page.date | date: "%B %-d, %Y" }}
           </time>
-          {%- if page.author -%}
-            &nbsp;&bull;&nbsp;<span class="p-author h-card" itemprop="author">{{ page.author | escape }}</span>
-          {%- endif -%}
-        </p>
+          {% if page.categories %}
+            <span class="post-meta-divider" aria-hidden="true"></span>
+            <span>{{ page.categories | join: " · " }}</span>
+          {% endif %}
+        </div>
       </header>
       <div class="post-content e-content" itemprop="articleBody">
         {{ content }}
       </div>
+      <footer class="post-end">
+        <span>Written by Hananiah Hsu</span>
+        <a href="{{ '/blog/' | relative_url }}">Browse all notes →</a>
+      </footer>
     </article>
   </div>
 </main>

@@ -1,0 +1,5 @@
+_site/
+dist/
+.sass-cache/
+.jekyll-validation/
+.sites-package/

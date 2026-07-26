@@ -4,8 +4,32 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#071014">
+    <meta name="color-scheme" content="dark">
     {%- seo -%}
+    <meta property="og:image" content="{{ '/assets/og-cover.png' | absolute_url }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{ '/assets/og-cover.png' | absolute_url }}">
     <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
     {%- feed_meta -%}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Hananiah Hsu",
+        "url": "{{ '/' | absolute_url }}",
+        "email": "mailto:{{ site.email }}",
+        "knowsAbout": [
+          "Computer-aided design",
+          "Computational geometry",
+          "Boundary representation",
+          "C++",
+          "Optimization algorithms",
+          "Applied mathematics"
+        ],
+        "sameAs": ["https://www.tusyndon.com"]
+      }
+    </script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>

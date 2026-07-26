@@ -1,13 +1,15 @@
 <header class="site-header" role="banner">
-  <div class="wrapper">
-    <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+  <div class="wrapper header-inner">
+    <a class="site-title" rel="author" href="{{ '/' | relative_url }}" aria-label="Hananiah Hsu, home">
+      <span class="site-mark" aria-hidden="true">H</span>
+      <span class="site-name">Hananiah Hsu</span>
+    </a>
     <nav class="site-nav" aria-label="Primary">
-      <a class="page-link" href="{{ '/' | relative_url }}">Home</a>
-      <a class="page-link" href="{{ '/blog/' | relative_url }}">Blog</a>
-      <a class="page-link" href="{{ '/math/' | relative_url }}">Math</a>
-      <a class="page-link" href="{{ '/graphics/' | relative_url }}">Graphics</a>
-      <a class="page-link" href="{{ '/projects/' | relative_url }}">Projects</a>
-      <a class="page-link" href="{{ '/about/' | relative_url }}">About</a>
+      <a class="page-link{% if page.url == '/work/' %} is-current{% endif %}" href="{{ '/work/' | relative_url }}">Work</a>
+      <a class="page-link{% if page.url == '/graphics/' %} is-current{% endif %}" href="{{ '/graphics/' | relative_url }}">Geometry</a>
+      <a class="page-link{% if page.url == '/math/' %} is-current{% endif %}" href="{{ '/math/' | relative_url }}">Mathematics</a>
+      <a class="page-link{% if page.url == '/blog/' or page.layout == 'post' %} is-current{% endif %}" href="{{ '/blog/' | relative_url }}">Journal</a>
+      <a class="page-link{% if page.url == '/about/' %} is-current{% endif %}" href="{{ '/about/' | relative_url }}">About</a>
     </nav>
   </div>
 </header>

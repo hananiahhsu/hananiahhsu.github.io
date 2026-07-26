@@ -1,26 +1,26 @@
 ---
-# Single-language site
-
-title: "Hananiah · Engineering Notes"
-description: "C++ / CAD / CAE / Graphics Engineering · SolidDesigner/Alice platform · Geometry kernel & math notes"
+title: "Hananiah Hsu · CAD Systems & Applied Mathematics"
+description: "CAD systems engineering, computational geometry, industrial algorithms, and applied mathematics by Hananiah Hsu."
 lang: "en"
 timezone: "UTC"
 future: true
 theme: minima
 url: "https://hananiahhsu.github.io"
 email: "hananiahhsu@live.cn"
+author:
+  name: "Hananiah Hsu"
+  email: "hananiahhsu@live.cn"
+logo: "/assets/og-cover.png"
 
-# Only whitelist plugins supported by GitHub Pages
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-# Site-wide defaults
 permalink: /blog/:categories/:year/:month/:day/:title/
 
-# Top navigation pages (rendered in our custom header)
 header_pages:
-  - projects.md
+  - work.md
+  - graphics.md
   - math.md
   - about.md
 

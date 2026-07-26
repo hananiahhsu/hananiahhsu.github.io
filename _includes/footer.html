@@ -1,5 +1,13 @@
 <footer class="site-footer">
-  <div class="wrapper">
-    <p>&copy; {{ site.time | date: '%Y' }} {{ site.title | escape }}</p>
+  <div class="wrapper footer-inner">
+    <div>
+      <p class="footer-kicker">Geometry. Algorithms. Industrial systems.</p>
+      <p class="footer-copy">&copy; {{ site.time | date: '%Y' }} Hananiah Hsu</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:{{ site.email }}">Email</a>
+      <a href="https://www.tusyndon.com" target="_blank" rel="noopener">Tusyndon ↗</a>
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    </div>
   </div>
 </footer>
